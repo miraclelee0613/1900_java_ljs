@@ -8,6 +8,7 @@ public class IfTest_1 {
 		Scanner sc = new Scanner(System.in);
 		// 국어, 수학, 영어의 점수를 입력받기
 		// 국어 >> 수학 >> 영어 >>
+		System.out.println("국어, 수학, 영어의 점수를 받아 평균을 계산하여\n등급을 산출하는 프로그램입니다.");
 		System.out.print("국어 >> ");
 		int kor = sc.nextInt();
 		System.out.print("수학 >> ");

@@ -1,0 +1,2 @@
+module local_test {
+}

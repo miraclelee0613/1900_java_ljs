@@ -87,7 +87,7 @@ public class IfTask1 {
 			}
 			System.out.println(year + "년은 " + yy);
 		} else {
-			System.out.println("잘못된 입력입니다.\n프로그램을 종료합니다.");
+			System.err.println("error - 잘못된 입력입니다.\n프로그램을 종료합니다.");
 		}
 		System.out.println("---------프로그램 종료---------");
 	}

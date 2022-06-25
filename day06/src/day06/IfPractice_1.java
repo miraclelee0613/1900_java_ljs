@@ -1,7 +1,7 @@
 package day06;
 
 import java.util.Scanner;
-import java.util.random.*;
+//import java.util.random.*;
 
 public class IfPractice_1 {
 

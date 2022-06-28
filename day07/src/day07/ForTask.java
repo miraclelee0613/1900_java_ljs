@@ -85,41 +85,53 @@ public class ForTask {
 			System.out.printf("%d x %d = %d\n", dan, i + 1, dan * (i + 1));
 		}
 
-		// 7. 별 출력하기
-		// *
-		// **
-		// ***
-		// ****
-
-//		for(int i = 0; i < 4; i++) {
-//			System.out.print("*");
-//			for(int i2 = 0; i2 < 4; i2++) {
-//				System.out.print(" ");
-//			}
-//			System.out.println("");
-//		}
-
-		for (int i = 0; i < 4; i++) {
-			for (int i2 = 0; i2 < i + 1; i2++) {
-				System.out.print("*");
-			}
-			System.out.println("");
+        // 7. 별출력하기
+        // *
+        // **
+        // ***
+        // ****
+        System.out.println("--------------");
+        for(int i = 0; i < 4; i++){
+            switch(i){
+                case 3:
+                    System.out.print("*");
+                case 2:
+                    System.out.print("*");
+                case 1:
+                    System.out.print("*");
+                case 0:
+                    System.out.println("*");
+            }
+        }
+        //System.out.println("별 좌측 정렬 종료");
+      //    *
+      //   **
+      //  ***
+      // ****
+        System.out.println("--------------");
+		for(int i = 0; i < 4; i++){
+            switch(i){
+                case 0:
+                    System.out.print(" ");
+                case 1:
+                    System.out.print(" ");
+                case 2:
+                    System.out.print(" ");
+                case 3:
+                    System.out.print(" ");
+            }
+            switch(i){
+                case 3:
+                    System.out.print("*");
+                case 2:
+                    System.out.print("*");
+                case 1:
+                    System.out.print("*");
+                case 0:
+                    System.out.println("*");
+            }
 		}
-
-		//    *
-		//   **
-		//  ***
-		// ****
-		
-		for(int i = 0; i < 4; i++) {
-			for(int i2 = 0; i2 < i; i2++) {
-				System.out.print(" ");
-			}
-			for(int i2 = 0; i2 < i; i2++) {
-				System.out.print("*");
-			}
-			System.out.println("");
-		}
+//	System.out.println("별 우측 정렬 종료");
 
 	}
 

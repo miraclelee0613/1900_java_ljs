@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 package day01;
 
 public class Basic {
@@ -5,4 +6,13 @@ public class Basic {
 		
 	}
 	
+=======
+package day01;
+
+public class Basic {
+	public static void main(String[] args) {
+		
+	}
+	
+>>>>>>> refs/remotes/origin/master
 }

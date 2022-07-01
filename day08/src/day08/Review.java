@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 package day08;
 
 import java.util.Scanner;

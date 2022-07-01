@@ -88,4 +88,3 @@ public class WhileTest {
 	}
 
 }
->>>>>>> refs/remotes/origin/master

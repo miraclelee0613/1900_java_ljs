@@ -1,9 +1,13 @@
 package day09SelfStudy;
+
 import java.util.Scanner;
 import java.util.Random;
-public class Kiosk_ljs {
 
-	public static void main(String[] args) {
+public class Kiosk_ljs { // class 시작
+
+	public static void main(String[] args) /*
+m100*/{	// 시작 준비영역
+		// main 시작
 		Scanner sc = new Scanner(System.in); // 입력 받을 준비(choice)
 		Random r = new Random(); // 랜덤 받을 준비(번호표)
 
@@ -35,8 +39,9 @@ public class Kiosk_ljs {
 		// 설정 완료시 출력 메시지
 		String fail = "설정 실패!";
 		// 설정 실패시 출력 메시지
-
-		while (true) { // 메인메뉴
+		// m100 준비영역 종료
+		while (true)
+/*w110*/{	// 110 시작
 			hamCnt = 0;
 			gamCnt = 0;
 			colaCnt = 0;
@@ -50,8 +55,9 @@ public class Kiosk_ljs {
 			int choice = Integer.parseInt(sc.nextLine());
 			// 입력을 받을 변수 choice 선언
 
-			if (choice == 1) { // 주문하기 화면
-				while (true) { // 음식메뉴출력 while문 여는 중괄호
+/*i111*/	if (choice == 1) { // 111 시작 주문하기 화면
+/*w111.1*/		while (true) { // 111.1 시작 음식메뉴출력
+					// while문 여는 중괄호
 					System.out.println("★ ────────가격표─────────\t★");
 					System.out.printf("│ 1. %-4s\t-%5d원 │\n", menu1, hamPrice); // menu1햄버거
 					System.out.printf("│ 2. %-4s\t-%5d원 │\n", menu2, gamPrice); // menu2감자튀김
@@ -68,51 +74,59 @@ public class Kiosk_ljs {
 					choice = Integer.parseInt(sc.nextLine());
 					// 주문 메뉴 번호 입력 변수
 					int tempCnt = 0; // 수량 변수 tempCnt 선언
-					if (choice == 1 || choice == 2 || choice == 3) {
+/*i111.1.01*/		if (choice == 1 || choice == 2 || choice == 3) {// 111.1.01 시작
 						// menu1,2,3 중 하나를 골랐을 경우
-						do { // do~while문 여는 중괄호
+/*w111.1.01.01*/		do {// 111.1.01.01 시작
+							// do~while문 여는 중괄호
 							System.out.print("수량 >> ");
 							// 수량 입력 안내메시지
 							tempCnt = Integer.parseInt(sc.nextLine());
 							// 수량 변수 tempCnt 입력
-						} while (tempCnt < 0); // do~while 닫는 중괄호
+/*w111.1.01.01*/		} while (tempCnt < 0);	// 111.1.01.01 종료
+						// do~while 닫는 중괄호
 						// 수량을 0보다 작게 입력하면 다시 입력하게 이동
-						if (tempCnt == 0) {
+/*i111.1.01.02*/		if (tempCnt == 0) {	// 111.1.01.02 시작
 							// 수량을 0개 입력하면 음식메뉴로 다시 이동
 							continue; // 음식메뉴로 이동
-						} // if문 종료 : 수량 0개 메인메뉴이동
+/*i111.1.01.02*/		}	// 111.1.01.02 종료
+						// if문 종료 : 수량 0개 메인메뉴이동
+/*i111.1.01*/		}	// 111.1.01 종료
+					// if문 종료 : menu1,2,3,0 중 하나를 골랐을 경우
 
-					}// if문 종료 : menu1,2,3,0 중 하나를 골랐을 경우
-
-					if(choice == 0) {
+/*i111.1.02*/		if (choice == 0) {	// 111.1.02 시작
 						// 탈출키 0을 입력한 경우
 						System.out.println(goToMain);
 						// 안내메시지 "메인메뉴로 돌아갑니다." 출력
 						break;
 						// 메인메뉴로 이동
-					}
+/*i111.1.02*/		}	// 111.1.02 종료
 
 					String dummyMenu = "";
+					//	더미메뉴 변수 선언. 임시로 메뉴명을 담을 변수.
 					int dummyCnt = 0;
-					if (choice == 1) {
+					//	더미카운트 변수 선언. 임시로 개수를 담을 변수. 
+/*i111.1.03*/		if (choice == 1) {	// 111.1.03 시작
 						// 1. menu1 햄버거 선택
 						hamCnt += tempCnt;
 						// 장바구니에 담긴 수 + 더 담은 수
 						dummyMenu = menu1;
 						dummyCnt = hamCnt;
-					} else if (choice == 2) {
+/*ei111.1.03*/		} else if (choice == 2) // 111.1.03 종료
+/*ei111.1.04*/		{	// 111.1.04 시작
 						// 2. 감자튀김 선택
 						gamCnt += tempCnt;
 						// 장바구니에 담긴 수 + 더 담은 수
 						dummyMenu = menu2;
 						dummyCnt = gamCnt;
-					} else if (choice == 3) {
+/*ei111.1.04*/		} else if (choice == 3) // 111.1.04 종료
+/*ei111.1.05*/		{	// 111.1.05 시작
 						// 3. 콜라 선택
 						colaCnt += tempCnt;
 						// 장바구니에 담긴 수 + 더 담은 수
 						dummyMenu = menu3;
 						dummyCnt = colaCnt;
-					} else if (choice == 4) {
+/*ei111.1.05*/		} else if (choice == 4)	// 111.1.05 종료
+/*ei111.1.06*/		{	// 111.1.06 시작
 						// 4. 결제하기
 						int total = hamCnt * hamPrice + gamCnt * gamPrice + colaCnt * colaPrice;
 						// 결제 필요 금액 변수 선언
@@ -126,115 +140,118 @@ public class Kiosk_ljs {
 						// 금액 입력 안내메시지
 						int money = Integer.parseInt(sc.nextLine());
 						// 금액 입력 변수 money 선언
-						if (money >= total) {
+/*i111.1.06.1*/			if (money >= total) {	// 111.1.06.1 시작
 							// 입력한 금액이 결제할 금액보다 크거나 같은 경우(결제 가능한 경우)
 							System.out.println("입력된 금액 : \t" + money);
 							// 입력한 금액
 							System.out.println("총 결제 금액 : \t" + total);
 							// 필요한 결제 금액
-							if (money > total) {
+/*i111.1.06.1.01*/			if (money > total) {// 111.1.06.1.01 시작
 								// 입력 금액이 결제에 필요한 금액보다 많은 경우
 								// money == total인 경우는 출력하지 않음
 								System.out.println("반환될 금액 : \t" + (money - total));
 								// 잔돈 안내 메시지
-							}
+/*i111.1.06.1.01*/			}	// 111.1.06.1.01 종료
 							System.out.printf("대기번호 : %04d\n", r.nextInt(9999) + 1);
 							// 대기번호 출력 메시지
 							System.out.println("결제가 완료되었습니다.\n식사 맛있게 하세요!\n");
 							// 결제완료 안내 메시지
-
-						} else {
+/*i111.1.06.1*/			} else	// 111.1.06.1 종료
+/*e111.1.06.2*/			{	// 111.1.06.2 시작
 							// money < total 입력 금액이 결제에 필요한 금액보다 적은 경우
 							System.out.println("잔액이 부족합니다.");
 							// 안내 메시지
 							System.out.println(goToMain);
 							// 메인메뉴 복귀 메시지
-						}
+/*e111.1.06.2*/			}	// 111.1.06.2 종료
 						break; // 메인메뉴 복귀
-
-					} else if (choice == 5) {
+/*ei111.1.06*/		} else if (choice == 5) // 111.1.06 종료
+/*ei111.1.07*/		{	// 111.1.07 시작
 						// 5.장바구니 초기화
 						hamCnt = 0;
 						gamCnt = 0;
 						colaCnt = 0;
-//					} else if (choice == 6) {
-//						// 6. 메인메뉴로 돌아가기
-//						System.out.println(goToMain);
-//						// 안내메시지 "메인메뉴로 돌아갑니다" 출력
-//						break; // 메인메뉴 복귀
-						// 0으로 변경
-					} else {
+/*ei111.1.07*/		} else	// 111.1.07 종료
+/*e111.1.08*/		{	// 111.1.08 시작
 						// 0~5(이)가 아닌 다른 숫자를 입력했을 경우
 						System.out.println(errMsg);
 						// 오류메시지 "다시 입력하세요." 출력
-					}
-					if(choice == 1 || choice == 2 || choice == 3) {
+/*e111.1.08*/		}	// 111.1.08 종료
+					if (choice == 1 || choice == 2 || choice == 3) 
+/*i111.1.09*/		{	// 111.1.09 시작
 						System.out.printf("장바구니에 %s %d개 추가 완료!\n", dummyMenu, dummyCnt);
-					}
+/*i111.1.09*/		}	// 111.1.09 종료
 					// 현재 장바구니에 담겨있는 음식들 출력하기
 					System.out.println();
 					// 가독성을 위한 줄바꿈
 					System.out.println("★ ─장바구니─ ★");
-					if (hamCnt >= 1) {
-						// 햄버거가 1개 이상 장바구니에 담긴 경우
+					if (hamCnt >= 1)	// 햄버거가 1개 이상 장바구니에 담긴 경우
+/*i111.1.10*/		{	// 111.1.10 시작					
 						System.out.printf("│%s\t: %d개│\n", menu1, hamCnt);
 						// 개수 출력
-					}
-					if (gamCnt >= 1) {
+/*i111.1.10*/		}	// 111.1.10 종료
+					if (gamCnt >= 1) 
+/*i111.1.11*/		{	// 111.1.11 시작
 						// 감자튀김이 1개 이상 장바구니에 담긴 경우
 						System.out.printf("│%s\t: %d개│\n", menu2, gamCnt);
 						// 개수 출력
-					}
-					if (colaCnt >= 1) {
+/*i111.1.11*/		}	// 111.1.11 종료
+					if (colaCnt >= 1)
+/*i111.1.12*/		{	// 111.1.12 시작
 						// 콜라가 1개 이상 장바구니에 담긴 경우
 						System.out.printf("│%s\t: %d개│\n", menu3, colaCnt);
 						// 개수 출력
-					}
+/*i111.1.12*/		}	// 111.1.12 종료
 					System.out.println();
 					// 가독성을 위한 줄바꿈
 					System.out.println("★ ──────── ★");
-				} // 음식메뉴출력 while문 닫는 중괄호
-
-			} else if (choice == 2) {
-				// 관리자메뉴 화면
+/*w111.1*/		}	//	111.1 종료
+				// 음식메뉴출력 while문 닫는 중괄호
+/*i111*/	} else if (choice == 2)	// 111 종료 주문하기 화면
+				// 주문하기 if문 종료
+/*ei112*/	{	// 112 시작
+				// 관리자메뉴 if문 시작
 				String inputCode = "";
 				// 입력받을 비밀번호 변수 선언
-				do { // 비밀번호 입력을 받되,
+/*w112.1*/		do {	// 112.1 시작 
+					// 비밀번호 입력을 받되,
 					System.out.println("(메인메뉴로 이동 -> esc 입력)\n" + "관리자 메뉴 접근에는 비밀번호가 필요합니다.");
 					// 잘못 들어왔을 경우 escape key 안내메시지 출력
 					System.out.print("비밀번호 >> ");
 					// 비밀번호 입력 안내 메시지
 					inputCode = sc.nextLine();
 					// 비밀번호 입력 변수
-					if (inputCode.equals("esc")) {
+/*i112.1.01*/		if (inputCode.equals("esc")) {	// 112.1.01 시작
 						// escape key 입력시
 						System.out.println(goToMain);
 						// 안내메시지 "메인메뉴로 돌아갑니다." 출력
 						break;
 						// 관리자메뉴 탈출
-					} else if (!(inputCode.equals("esc")) && !adminCode.equals(inputCode)) {
+/*i112.1.01*/		} else if (!(inputCode.equals("esc")) && !adminCode.equals(inputCode))
+						// 112.1.01 종료
+/*ei112.1.02*/		{	// 112.1.02 시작
 						// 관리자비밀번호와 입력된 값이 다르고 esc를 입력하지 않은 경우
 						System.out.println("비밀번호가 일치하지 않습니다.");
 						// 비밀번호 불일치 안내 메시지 출력
 						// 아래 while을 만나 재입력으로 이동
-					}
-
-				} while (!adminCode.equals(inputCode));
+/*ei112.1.02*/		}	// 112.1.02 종료
+/*w112.1*/		} while (!adminCode.equals(inputCode));
+				// 112.1 종료
 				// 관리자 비밀번호와 불일치시 다시 입력
-
-				if (adminCode.equals(inputCode)) {
+/*i112.2*/		if (adminCode.equals(inputCode)) {	// 112.2 시작
 					// 비밀번호가 잘 입력되면 오는 영역
 
 					System.out.println("1.마감하기\n" + "2.비밀번호재설정\n" + "3.가격 설정\n" + "4.메인메뉴로");
 					System.out.print("입력 >> ");
 					choice = Integer.parseInt(sc.nextLine());
-					if (choice == 1) {
+/*i112.2.1*/		if (choice == 1) {	// 112.2.1 시작
 						// 1. 마감하기
 						System.out.println("오늘도 고생했습니다.");
 						// 메시지 출력
 						break;
 						// 프로그램 종료
-					} else if (choice == 2) {
+/*i112.2.1*/		} else if (choice == 2) // 112.2.1 종료
+/*ei112.2.2*/		{	// 112.2.2 시작
 						// 2. 비밀번호 재설정
 						System.out.print("새 비밀번호 입력 >> ");
 						// 새비밀번호 입력 안내메시지
@@ -247,7 +264,7 @@ public class Kiosk_ljs {
 						/*
 						 * 새로 설정한 비밀번호와 비밀번호 확인이 같다면 설정 성공! 출력 후 메인메뉴로 이동, 같지 않다면 설정 실패! 출력 후 메인메뉴로 이동
 						 */
-						if (!newPw.equals(tempPw)) {
+/*i112.2.2.01*/			if (!newPw.equals(tempPw)) {	// 112.2.2.01 시작
 							// 새비밀번호와 확인비밀번호가 같지 않다면
 							System.out.println(fail);
 							// 오류 메시지 "설정 실패!" 출력
@@ -255,7 +272,8 @@ public class Kiosk_ljs {
 							// 안내메시지 "메인메뉴로 돌아갑니다" 출력
 							continue;
 							// 메인메뉴로 이동
-						} // 새비밀번호와 확인비밀번호가 일치한다면
+/*i112.2.2.01*/			}	// 112.2.2.01 종료
+						// 새비밀번호와 확인비밀번호가 일치한다면
 						System.out.println(profit);
 						// 안내메시지 "설정 성공!" 출력
 						adminCode = newPw;
@@ -264,7 +282,8 @@ public class Kiosk_ljs {
 						// 안내메시지 "메인메뉴로 돌아갑니다" 출력
 //						continue;	// 없어도 되는 코드
 						// 메인메뉴로 이동
-					} else if (choice == 3) {
+/*i112.2.2*/		} else if (choice == 3) // 112.2.2 종료
+/*ei112.2.3*/		{	// 112.2.3 시작
 						// 3. 가격 재설정
 						System.out.println("가격을 변경한 메뉴를 고르세요");
 						// 가격변경 안내메시지
@@ -278,25 +297,27 @@ public class Kiosk_ljs {
 						// 현재 가격 변수 선언 및 초기화
 						String dummyMenu = "";
 						// 메뉴 이름을 넣을 더미변수 선언 및 초기화
-						if (choice == 1) {
+/*i112.2.3.01*/			if (choice == 1) {	// 112.2.3.01 시작
 							// 1.menu1 선택시
 							nowPrice = hamPrice;
 							// 현재 가격에 menu1의 현재 가격 대입
 							dummyMenu = menu1;
 							// 더미메뉴에 menu1메뉴명 대입
-						} else if (choice == 2) {
+/*i112.2.3.01*/			} else if (choice == 2) // 112.2.3.01 종료
+/*ei112.2.3.02*/		{	// 112.2.3.02 시작
 							// 2.menu2 선택시
 							nowPrice = gamPrice;
 							// 현재 가격에 menu2의 현재 가격 대입
 							dummyMenu = menu2;
 							// 더미메뉴에 menu2의 메뉴명 대입
-						} else if (choice == 3) {
+/*ei112.2.3.02*/		} else if (choice == 3) // 112.2.3.02 종료
+/*ei112.2.3.03*/		{	// 112.2.3.03 시작
 							// 3.menu3 선택시
 							nowPrice = colaPrice;
 							// 현재 가격에 menu3의 현재 가격 대입
 							dummyMenu = menu3;
 							// 더미메뉴에 menu3의 메뉴명 대입
-						}
+/*ei112.2.3.03*/		}	// 112.2.3.03 종료
 						// 가격 변경 대상 선택 if문 종료
 						System.out.printf("%s 현재 가격 : %d\n", dummyMenu, nowPrice);
 						// 대입된 더미메뉴의 현재가격 안내메시지
@@ -316,58 +337,69 @@ public class Kiosk_ljs {
 						// 입력 안내메시지
 						int yOrN = Integer.parseInt(sc.nextLine());
 						// 가격 설정 확정 선택 입력 변수 선언
-						if (yOrN == 1) {
+/*i112.2.3.04*/			if (yOrN == 1) {	// 112.2.3.04 시작
 							// 1.예 선택시
-							if (choice == 1) {
+/*i112.2.3.04.01*/			if (choice == 1) {	// 112.2.3.04.01 시작
 								// 가격 변경 대상 메뉴가 menu1 메뉴라면
 								hamPrice = dummyPrice;
 								// 더미가격을 menu1 가격에 대입
-							} else if (choice == 2) {
+/*i112.2.3.04.01*/			} else if (choice == 2) // 112.2.3.04.01 종료
+/*ei112.2.3.04.02*/			{	// 112.2.3.04.02 시작
 								// 가격 변경 대상 메뉴가 menu2 메뉴라면
 								gamPrice = dummyPrice;
 								// 더미가격을 menu2 가격에 대입
-							} else if (choice == 3) {
+/*ei112.2.3.04.02*/			} else if (choice == 3)	// 112.2.3.04.02 종료
+/*ei112.2.3.04.03*/			{	// 112.2.3.04.03 시작
 								// 가격 변경 대상 메뉴가 menu3 메뉴라면
 								colaPrice = dummyPrice;
 								// 더미가격을 menu3 가격에 대입
-							} // 설정 가격 확정 1.예 선택 if문 종료
+/*ei112.2.3.04.03*/			}	// 112.2.3.04.03 종료
+							// 설정 가격 확정 1.예 선택 if문 종료
 							System.out.println(profit);
-						} else if (yOrN == 2) {
+/*i112.2.3.04*/			} else if (yOrN == 2) // 112.2.3.04 종료
+/*ei112.2.3.05*/		{	// 112.2.3.05 시작
 							// 설정 가격 확정 2.아니오 선택시
 							System.out.println(goToMain);
 							continue;
 							// 메인메뉴로 이동
-						} else {
+/*ei112.2.3.05*/		} else	// 112.2.3.05 종료 
+/*e112.2.3.06*/			{	// 112.2.3.06 시작
 							// 1.예 2.아니오가 아닌 다른 입력을 받은 경우
 							System.out.println(errMsg);
 							// 오류메시지 "다시 입력하세요." 출력
-						}
+/*e112.2.3.06*/			}	// 112.2.3.06 종료
 //						System.out.println(goToMain);
 //						// 안내메시지 "메인메뉴로 돌아갑니다." 출력
 //						continue;
 //						// 메인메뉴로 이동
-					} else if (!(choice == 4)) {
+/*ei112.2.3*/		} else if (!(choice == 4)) // 112.2.3 종료
+/*ei112.2.4*/		{	// 112.2.4 시작
 						// 1,2,3,4 입력이 아닌 다른 것을 입력했을 경우
 						System.out.println(errMsg);
 						// 오류메시지 "다시 입력하세요." 출력
-					} // 관리자메뉴 선택if문 종료
+/*ei112.2.4*/		}	// 112.2.4 종료
+					// 관리자메뉴 선택if문 종료
 					System.out.println(goToMain);
 					// 안내메시지 메인메뉴로 돌아갑니다." 출력
 					System.out.println();
 					// 가독성을 위한 줄바꿈
 					continue;
 					// 메인메뉴로 이동
-				} // if문 (adminCode.equals(inputCode)) 종료
-			} else {// 메인메뉴 if문else
+/*i112.2*/		}	// 112.2 종료
+				// if문 (adminCode.equals(inputCode)) 종료
+/*ei112*/	} else	// 112 종료
+				// 2.관리자메뉴 else~if문 종료
+/*e113*/	{	// 113 시작
+				// 메인메뉴 if문else
 				// 1.주문하기, 2.관리자메뉴, 탈출키 esc 외의 다른 숫자입력시
 				System.out.println(errMsg);
 				// 오류메시지 "다시 입력하세요." 출력
 				System.out.println();
-			} // 메인메뉴 if~else~if문 종료
+/*e113*/	}	// 113 종료
+			// 메인메뉴 if~else~if문 종료
+/*w110*/}	// 110 종료
+		// 메인메뉴while 닫음
+/*100*/}	// 100 종료
+	// main 종료
 
-		} // 메인메뉴while 닫음
-
-
-	}
-
-}
+} // class 종료

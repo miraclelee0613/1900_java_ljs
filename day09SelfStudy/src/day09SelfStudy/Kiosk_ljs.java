@@ -16,7 +16,7 @@ m100*/{	// 시작 준비영역
 		// 2. 대기번호 랜덤 출력 기능
 		// 3. 장바구니 담기 및 장바구니 초기화 기능
 		// 4. 특정 메뉴 가격 변경 기능
-		// (미구현)5. 메뉴명 변경 기능
+		// (new)5. 메뉴명 변경 기능
 
 		String adminCode = "0000"; // 관리자 비밀번호를 저장할 변수
 
@@ -241,7 +241,7 @@ m100*/{	// 시작 준비영역
 /*i112.2*/		if (adminCode.equals(inputCode)) {	// 112.2 시작
 					// 비밀번호가 잘 입력되면 오는 영역
 
-					System.out.println("1.마감하기\n" + "2.비밀번호재설정\n" + "3.가격 설정\n" + "4.메인메뉴로");
+					System.out.println("1.마감하기\n" + "2.비밀번호재설정\n" + "3.가격 설정\n" + "4.메뉴명 설정\n" + "5.메인메뉴로");
 					System.out.print("입력 >> ");
 					choice = Integer.parseInt(sc.nextLine());
 /*i112.2.1*/		if (choice == 1) {	// 112.2.1 시작
@@ -372,19 +372,103 @@ m100*/{	// 시작 준비영역
 //						// 안내메시지 "메인메뉴로 돌아갑니다." 출력
 //						continue;
 //						// 메인메뉴로 이동
-/*ei112.2.3*/		} else if (!(choice == 4)) // 112.2.3 종료
+/*ei112.2.3*/		} else if (choice == 4) // 112.2.3 종료
 /*ei112.2.4*/		{	// 112.2.4 시작
-						// 1,2,3,4 입력이 아닌 다른 것을 입력했을 경우
-						System.out.println(errMsg);
-						// 오류메시지 "다시 입력하세요." 출력
-/*ei112.2.4*/		}	// 112.2.4 종료
-					// 관리자메뉴 선택if문 종료
-					System.out.println(goToMain);
-					// 안내메시지 메인메뉴로 돌아갑니다." 출력
-					System.out.println();
-					// 가독성을 위한 줄바꿈
-					continue;
-					// 메인메뉴로 이동
+						// 메뉴명설정
+						System.out.printf("변경할 메뉴를 선택하세요.\n1.%s\n2.%s\n3.%s", menu1, menu2, menu3);
+						// 변경할 메뉴 선택 안내메시지
+						choice = Integer.parseInt(sc.nextLine());
+						// 선택한 메뉴 번호 입력 변수에 저장
+						String dummyMenu = "";
+						// 더미메뉴명 변수 선언
+						if(choice == 1) // 1번 메뉴 선택한 경우
+/*i112.2.4.1*/			{
+							dummyMenu = menu1;
+							// 더미메뉴명에 1번 메뉴명 대입
+/*i112.2.4.1*/			}else if(choice == 2) // 2번 메뉴 선택한 경우
+/*ei112.2.4.2*/			{
+							dummyMenu = menu2;
+							// 더미메뉴명에 2번 메뉴명 대입
+/*ei112.2.4.2*/			}else if(choice == 3) // 3번 메뉴 선택한 경우 
+/*ei112.2.4.3*/			{
+							dummyMenu = menu3;
+							// 더미메뉴명에 3번 메뉴명 대입
+/*ei112.2.4.3*/			}else 
+							// 1,2,3이 아닌 다른 입력을 한 경우
+/*e112.2.4.4*/			{
+							System.out.println(errMsg);
+							// 에러메시지 "다시 입력하세요." 출력
+							System.out.println(goToMain);
+							// 안내메시지 "메인메뉴로 돌아갑니다." 출력
+							continue;
+							// 메인메뉴로 이동
+/*e112.2.4.4*/			}
+						System.out.printf("변경할 메뉴 : %s\n새로운 메뉴명을 입력해주세요.\n", dummyMenu);
+						// 변경할 메뉴 안내메시지
+						System.out.print("입력 >> ");
+						// 새로운 메뉴명 입력 안내메시지
+						String dummyNewName = sc.nextLine();
+						// 입력받은 새로운 메뉴명을 저장할 변수 선언
+						System.out.printf("기존 메뉴명 : %s\n새로운 메뉴명 : %s\n적용하시겠습니까?\n", dummyMenu, dummyNewName);
+						// 기존 메뉴명, 새로운 메뉴명 안내메시지
+						System.out.println("1.예\n2.아니오");
+						// 선택 안내메시지
+						System.out.print("입력 >> ");
+						// 입력 안내메시지
+						int YorN = Integer.parseInt(sc.nextLine());
+						// 선택 입력 변수 선언
+						if(YorN == 1)
+							// 1.예를 입력한 경우
+/*i112.2.4.5*/			{
+							if(choice == 1)
+								// 메뉴 선택에서 1번 메뉴를 선택한 경우
+/*e112.2.4.5.1*/			{
+								menu1 = dummyNewName;
+								// 새로운 메뉴명을 1번 메뉴에 대입
+/*e112.2.4.5.1*/			}else if(choice == 2) 
+								// 메뉴 선택에서 2번 메뉴를 선택한 경우
+/*ei112.2.4.5.2*/			{
+								menu2 = dummyNewName;
+								// 새로운 메뉴명을 2번 메뉴에 대입
+/*ei112.2.4.5.2*/			}else if(choice == 3) 
+								// 메뉴 선택에서 3번 메뉴를 선택한 경우
+/*ei112.2.4.5.3*/			{
+								menu3 = dummyNewName;
+								// 새로운 메뉴명을 3번 메뉴에 대입
+/*ei112.2.4.5.3*/			}
+							
+							System.out.println(profit);
+							// "설정 완료!" 메시지 출력
+/*i112.2.4.5*/			}else if(YorN == 2) 
+							// 2.아니오를 입력한 경우
+/*ei112.2.4.6*/			{
+							System.out.println(fail);
+							// "설정 실패!" 메시지 출력
+/*ei112.2.4.6*/			}
+						System.out.println(goToMain);
+						// "메인메뉴로 돌아갑니다." 안내메시지 출력
+						continue;
+						// 메인메뉴로 이동
+/*ei112.2.4*/		}else// 112.2.4 종료 메뉴명 설정 끝
+/*e112.2.5*/		{	// 112.2.5 시작 5나 다른 입력을 했을 경우
+						switch(choice) // choice값을 기준으로
+/*s112.2.5.1*/			{	// 112.2.5.1 시작
+							default:
+							// 5가 아닌 다른 입력을 했을 경우
+							System.out.println(errMsg);
+							// 에러메시지 출력 
+							// switch문은 아래로 흐르기 때문에 굳이 break걸지 않음.
+							case 5:
+							// 5를 입력한 경우
+							// 관리자메뉴 선택if문 종료
+							System.out.println(goToMain);
+							// 안내메시지 메인메뉴로 돌아갑니다." 출력
+							System.out.println();
+							// 가독성을 위한 줄바꿈
+							continue;
+							// 메인메뉴로 이동
+/*s112.2.5.1*/			}	// 112.2.5.1 종료
+/*e112.2.5*/		}	// 112.2.5 종료
 /*i112.2*/		}	// 112.2 종료
 				// if문 (adminCode.equals(inputCode)) 종료
 /*ei112*/	} else	// 112 종료

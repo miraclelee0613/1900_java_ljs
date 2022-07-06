@@ -4,7 +4,8 @@ import java.util.Scanner;
 import java.util.Random;
 
 public class Kiosk_with_Method {
-	public static void arnCntBack(int arr[][], int a) {
+	public static void arrInit(int arr[][], int a) {
+		// 이중배열의 모든 요소를 정수 a로 초기화하는 기능
 		for (int i = 0; i < arr.length; i++) {
 			for (int j = 0; j < arr[i].length; j++) {
 				arr[i][j] = a;
@@ -92,7 +93,7 @@ public class Kiosk_with_Method {
 		// 설정 실패시 출력 메시지
 		// 100 준비영역 종료
 		while (true) { // 110 시작
-			Kiosk_with_Method.arnCntBack(menusCnt, 0);
+			Kiosk_with_Method.arrInit(menusCnt, 0);
 			// int타입 중첩배열 특정 단일화 메소드
 			// 장바구니 초기화
 			System.out.println("★☆★☆어서오세요★☆★☆");
